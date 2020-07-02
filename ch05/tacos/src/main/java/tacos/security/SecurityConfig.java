@@ -33,7 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       .and()
         .formLogin()
           .loginPage("/login")
-          
+       .and()
+       	 .formLogin()
+       	  .successForwardUrl("/design")
       .and()
         .logout()
           .logoutSuccessUrl("/")
@@ -50,6 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       ;
   }
 
+  @SuppressWarnings("deprecation")
   @Bean
   public PasswordEncoder encoder() {
     return new StandardPasswordEncoder("53cr3t");
